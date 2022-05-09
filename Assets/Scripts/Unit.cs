@@ -26,7 +26,10 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-
+        if (MainManager.Instance != null)
+        {
+            SetColor(MainManager.Instance.TeamColor);
+        }
     }
 
     void SetColor(Color c)
@@ -76,6 +79,7 @@ public abstract class Unit : MonoBehaviour,
     /// Note that this is called every frame the current target is in range, not only the first time we get in range! 
     /// </summary>
     protected abstract void BuildingInRange();
+
 
     //Implementing the IUIInfoContent interface so the UI know it should display the UI when this is clicked on.
     //Implementation of all the functions are empty as default, but they are set as virtual so subclass units can
